@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wisej.Web.Ext.GoogleMaps", "Wisej.Web.Ext.GoogleMaps\Wisej.Web.Ext.GoogleMaps.csproj", "{0F6235E6-967C-40EB-B356-DF55FACEFFD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMapIt", "MapIt\AppMapIt.csproj", "{77EED91D-7448-497C-907B-2484C8CA1C43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafletjsMap", "LeafletjsMap\LeafletjsMap.csproj", "{0F673F90-F62A-4DF2-8518-AD300F49FEA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F6235E6-967C-40EB-B356-DF55FACEFFD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F6235E6-967C-40EB-B356-DF55FACEFFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F6235E6-967C-40EB-B356-DF55FACEFFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F6235E6-967C-40EB-B356-DF55FACEFFD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EED91D-7448-497C-907B-2484C8CA1C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EED91D-7448-497C-907B-2484C8CA1C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EED91D-7448-497C-907B-2484C8CA1C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EED91D-7448-497C-907B-2484C8CA1C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F673F90-F62A-4DF2-8518-AD300F49FEA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F673F90-F62A-4DF2-8518-AD300F49FEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F673F90-F62A-4DF2-8518-AD300F49FEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F673F90-F62A-4DF2-8518-AD300F49FEA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7363E8B-06C2-4669-981D-3AD20F550F48}
+	EndGlobalSection
+EndGlobal
