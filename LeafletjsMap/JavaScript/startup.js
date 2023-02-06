@@ -56,32 +56,20 @@ this.init = function () {
 
 		console.log(">. Loaded OSM.");
 
-
-		//var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-		//add the tileload event directly to that variable
-		//osm.on('tileload', function (e) {
-		//	console.log(e);
-		//});
-
+		// ---------------------------------------------------
+		// Wire up startup.js listeners to leaflet-src.js bind
+		// C# to LeafletMap.maps.event.triggers
+		// ---------------------------------------------------
+		// hooks the events that we want to redirect to the server component.
 
 		//Match signatures to "leaflet-src.js"
+
 		// dynamically resize the map.
+		this.addListener("resize", this._onMapPropertyChanged.bind(this, "resize"));
 		//this.addListener("resize", function () {
 		//	LeafletMap.maps.event.trigger(this.map, "resize");
 		//});
-		this.addListener("resize", this._onMapPropertyChanged.bind(this, "resize"));
 
-		// ---------------------------------------------------
-		// To Do: Wire up startup.js listeners to leaflet-src.js bind
-		// C# to LeafletMap.maps.event.triggers
-		// ---------------------------------------------------
-
-		// hook the events that we want to redirect to the server component.
-
-		// cannot read properties of undefined reading 'addlistener''
-
-		
 		this.addListener("dragstart", this._onMapDragEvent.bind(this, "mapdragstart"));
 		this.addListener("dragend", this._onMapDragEvent.bind(this, "mapdragend"));
 		this.addListener("zoom_changed", this._onMapPropertyChanged.bind(this, "zoom"));
