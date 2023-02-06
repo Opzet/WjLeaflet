@@ -67,9 +67,9 @@ this.init = function () {
 
 		//Match signatures to "leaflet-src.j""
 		// dynamically resize the map.
-		this.addListener("resize", function () {
-			LeafletMap.maps.event.trigger(this.map, "resize");
-		});
+		//this.addListener("resize", function () {
+		//	LeafletMap.maps.event.trigger(this.map, "resize");
+		//});
 
 		// ---------------------------------------------------
 		// To Do: Wire up startup.js listeners to leaflet-src.js bind
@@ -80,12 +80,12 @@ this.init = function () {
 
 		// cannot read properties of undefined reading 'addlistener''
 		//Js - > this.map.on('click', function(e) { alert("Location is: " + e.latlng); });
-		this.addListener("click", this._onMapClick.bind(this, "click", null));
+		//this.addListener("click", this._onMapClick.bind(this));
 	
-		this.addListener("dblclick", this._onMapClick.bind(this, "dblclick", null));
-		this.addListener("rightclick", this._onMapClick.bind(this, "rightclick", null));
-		this.addListener("dragstart", this._onMapDragEvent.bind(this, "mapdragstart"));
-		this.addListener("dragend", this._onMapDragEvent.bind(this, "mapdragend"));
+		//this.addListener("dblclick", this._onMapClick.bind(this, "dblclick", null));
+		//this.addListener("rightclick", this._onMapClick.bind(this, "rightclick", null));
+		//this.addListener("dragstart", this._onMapDragEvent.bind(this, "mapdragstart"));
+		//this.addListener("dragend", this._onMapDragEvent.bind(this, "mapdragend"));
 		this.addListener("zoom_changed", this._onMapPropertyChanged.bind(this, "zoom"));
 		this.addListener("tilt_changed", this._onMapPropertyChanged.bind(this, "tilt"));
 		this.addListener("maptypeid_changed", this._onMapPropertyChanged.bind(this, "mapTypeId"));
@@ -97,6 +97,7 @@ this.init = function () {
 
 		// collection of markers.
 		this.__markers = {};
+		map.on("click", this._onMapClick.bind(this))
 
 	}
 	else {
@@ -132,16 +133,18 @@ this._onInitialized = function () {
  * Redirects map click events from the LeafletMap.maps.Map widget.
  * to the wisej LeafletMapMap component.
  */
-this._onMapClick = function (type, marker, e) {
+this._onMapClick = function (e) {
 
 	if (Wisej.Platform.getDeviceType() != "Desktop") {
 		if (window.event.eventPhase != 1)
 			return;
 	}
 
-	var lat = e.latLng ? e.latLng.lat() : 0;
-	var lng = e.latLng ? e.latLng.lng() : 0;
-	this.fireWidgetEvent(type, { marker: marker, lat: lat, lng: lng });
+	console.log("Testing");
+	console.log(Object.keys(e));
+	var lat = e.latlng ? e.latlng.lat : -1;
+	var lng = e.latlng ? e.latlng.lng : 0;
+	this.fireWidgetEvent("click", {lat: lat, lng: lng });
 }
 
 /**
@@ -243,9 +246,9 @@ this.addMarker = function (id, location, options, center) {
 
 	this.removeMarker(id);
 	var marker = this.__markers[id] = new LeafletMap.maps.Marker(options);
-	marker.addListener("click", this._onMapClick.bind(this, "click", id));
-	marker.addListener("dblclick", this._onMapClick.bind(this, "dblclick", id));
-	marker.addListener("rightclick", this._onMapClick.bind(this, "rightclick", id));
+	//marker.addListener("click", this._onMapClick.bind(this, "click", id));
+	//marker.addListener("dblclick", this._onMapClick.bind(this, "dblclick", id));
+	//marker.addListener("rightclick", this._onMapClick.bind(this, "rightclick", id));
 
 	if (options.draggable) {
 		marker.addListener("dragend", this._onMapMarkerDrag.bind(this, "markerdragend", id));

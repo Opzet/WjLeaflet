@@ -46,10 +46,11 @@
 		// move zoom control to the bottom right corner of the map
 		$('.leaflet-control-zoom').detach().appendTo('#custom-zoom-control'); 
 
-        this.map.on('click', function(e) { alert("Location is: " + e.latlng); });
+		this.map.on('click', showLocationAlert);
 
 	},
 
+	
 	// add WMS overlay 
 	addWMSOverlay: function (overlayName, wmsAddress, wmsParams) {
 		var layer = L.tileLayer.wms(wmsAddress, wmsParams);
@@ -79,7 +80,8 @@
 		var myMarker = new defaultMapIcon({ iconUrl: getBaseUrl() + relativeIconUrl });
 		L.marker(position, { icon: myMarker }).bindPopup(popupHtmlContents).addTo(this.map);
 	}
-
 }
 
-
+function showLocationAlert(e) {
+	alert("Clicked on: " + e.latlng);
+}
