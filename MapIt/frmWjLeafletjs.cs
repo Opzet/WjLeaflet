@@ -31,7 +31,7 @@ namespace MapIt
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            //Not implemented yet
+            //To Do: Not implemented yet
             this.leafletMap1.Options.zoom = this.numericUpDownMaxZoom.Value;
             this.leafletMap1.Update();
 

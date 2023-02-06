@@ -65,11 +65,12 @@ this.init = function () {
 		//});
 
 
-		//Match signatures to "leaflet-src.j""
+		//Match signatures to "leaflet-src.js"
 		// dynamically resize the map.
 		//this.addListener("resize", function () {
 		//	LeafletMap.maps.event.trigger(this.map, "resize");
 		//});
+		this.addListener("resize", this._onMapPropertyChanged.bind(this, "resize"));
 
 		// ---------------------------------------------------
 		// To Do: Wire up startup.js listeners to leaflet-src.js bind
@@ -79,13 +80,10 @@ this.init = function () {
 		// hook the events that we want to redirect to the server component.
 
 		// cannot read properties of undefined reading 'addlistener''
-		//Js - > this.map.on('click', function(e) { alert("Location is: " + e.latlng); });
-		//this.addListener("click", this._onMapClick.bind(this));
-	
-		//this.addListener("dblclick", this._onMapClick.bind(this, "dblclick", null));
-		//this.addListener("rightclick", this._onMapClick.bind(this, "rightclick", null));
-		//this.addListener("dragstart", this._onMapDragEvent.bind(this, "mapdragstart"));
-		//this.addListener("dragend", this._onMapDragEvent.bind(this, "mapdragend"));
+
+		
+		this.addListener("dragstart", this._onMapDragEvent.bind(this, "mapdragstart"));
+		this.addListener("dragend", this._onMapDragEvent.bind(this, "mapdragend"));
 		this.addListener("zoom_changed", this._onMapPropertyChanged.bind(this, "zoom"));
 		this.addListener("tilt_changed", this._onMapPropertyChanged.bind(this, "tilt"));
 		this.addListener("maptypeid_changed", this._onMapPropertyChanged.bind(this, "mapTypeId"));
@@ -94,11 +92,12 @@ this.init = function () {
 		this.addListener("heading_changed", this._onMapPropertyChanged.bind(this, "heading"));
 		this.addListener("projection_changed", this._onMapPropertyChanged.bind(this, "projection"));
 
-
 		// collection of markers.
 		this.__markers = {};
-		map.on("click", this._onMapClick.bind(this))
 
+		map.on("click", this._onMapClick.bind(this)); //Js - > this.map.on('click', function(e) { alert("Location is: " + e.latlng); });
+		map.on("dblclick", this._onMapClick.bind(this));
+		map.on("rightclick", this._onMapClick.bind(this));
 	}
 	else {
 		// or update the existing map object.

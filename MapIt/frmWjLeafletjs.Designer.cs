@@ -31,6 +31,7 @@ namespace MapIt
 		private void InitializeComponent()
 		{
             this.groupBox1 = new Wisej.Web.GroupBox();
+            this.leafletMap1 = new LeafletjsMaps.LeafletMap();
             this.btnAddMarker = new Wisej.Web.Button();
             this.numericUpDownMaxZoom = new Wisej.Web.NumericUpDown();
             this.txtInitScript = new Wisej.Web.TextBox();
@@ -38,7 +39,6 @@ namespace MapIt
             this.txtMapOptions = new Wisej.Web.TextBox();
             this.txtEvent = new Wisej.Web.TextBox();
             this.trackBar1 = new Wisej.Web.TrackBar();
-            this.leafletMap1 = new LeafletjsMaps.LeafletMap();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -52,6 +52,19 @@ namespace MapIt
             this.groupBox1.Size = new System.Drawing.Size(652, 406);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.Text = "LeafletjsMap";
+            // 
+            // leafletMap1
+            // 
+            this.leafletMap1.BorderStyle = Wisej.Web.BorderStyle.Solid;
+            this.leafletMap1.Dock = Wisej.Web.DockStyle.Fill;
+            this.leafletMap1.Location = new System.Drawing.Point(3, 21);
+            this.leafletMap1.Name = "leafletMap1";
+            this.leafletMap1.Options = "";
+            this.leafletMap1.Size = new System.Drawing.Size(646, 382);
+            this.leafletMap1.TabIndex = 4;
+            this.leafletMap1.Text = "leafletMap1";
+            this.leafletMap1.MapClick += new LeafletjsMaps.MapMouseEventHandler(this.leafletMap1_MapClick);
+            this.leafletMap1.MouseMove += new Wisej.Web.MouseEventHandler(this.leafletMap1_MouseMove);
             // 
             // btnAddMarker
             // 
@@ -77,7 +90,7 @@ namespace MapIt
             0,
             0});
             this.numericUpDownMaxZoom.Name = "numericUpDownMaxZoom";
-            this.numericUpDownMaxZoom.Size = new System.Drawing.Size(74, 53);
+            this.numericUpDownMaxZoom.Size = new System.Drawing.Size(74, 50);
             this.numericUpDownMaxZoom.TabIndex = 9;
             this.numericUpDownMaxZoom.TextAlign = Wisej.Web.HorizontalAlignment.Center;
             this.numericUpDownMaxZoom.Value = new decimal(new int[] {
@@ -143,22 +156,9 @@ namespace MapIt
             this.trackBar1.Value = 1;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
-            // leafletMap1
-            // 
-            this.leafletMap1.BorderStyle = Wisej.Web.BorderStyle.Solid;
-            this.leafletMap1.Dock = Wisej.Web.DockStyle.Fill;
-            this.leafletMap1.Location = new System.Drawing.Point(3, 21);
-            this.leafletMap1.Name = "leafletMap1";
-            this.leafletMap1.Options = "";
-            this.leafletMap1.Size = new System.Drawing.Size(646, 382);
-            this.leafletMap1.TabIndex = 4;
-            this.leafletMap1.Text = "leafletMap1";
-            this.leafletMap1.MapClick += new LeafletjsMaps.MapMouseEventHandler(this.leafletMap1_MapClick);
-            this.leafletMap1.MouseMove += new Wisej.Web.MouseEventHandler(this.leafletMap1_MouseMove);
-            // 
             // frmWjLeafletjs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.txtEvent);
@@ -169,7 +169,7 @@ namespace MapIt
             this.Controls.Add(this.btnAddMarker);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmWjLeafletjs";
-            this.Size = new System.Drawing.Size(2123, 1414);
+            this.Size = new System.Drawing.Size(2452, 1369);
             this.Text = "Page1";
             this.Load += new System.EventHandler(this.frmWjLeafletjs_Load);
             this.groupBox1.ResumeLayout(false);
