@@ -10,4 +10,4 @@ I recommend using LeafletJS with OpenStreetMap as a provider to avoid some licen
 
 Discussion is in the  WiseJ forum reference: https://wisej.com/support/question/req-official-leaflet-wisej-control-or-some-advice-tutorial-to-create-it
 
-Thanks to Tom Van den Eynde for the great idea!
+Thanks to Ser Gar & Tom Van den Eynde for the great idea [https://wisej.com/support/question/req-official-leaflet-wisej-control-or-some-advice-tutorial-to-create-it]
